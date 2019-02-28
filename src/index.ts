@@ -1,18 +1,18 @@
 import React, { Dispatch } from 'react';
 
-export default function useLocalStorage(
+export default function useSessionStorage(
   key: string,
   initialValue: string = ''
 ): [string, Dispatch<string>] {
   const [item, setValue] = React.useState(() => {
-    const value = localStorage.getItem(key) || initialValue;
-    localStorage.setItem(key, value);
+    const value = sessionStorage.getItem(key) || initialValue;
+    sessionStorage.setItem(key, value);
     return value;
   });
 
   const setItem = (newValue: string) => {
     setValue(newValue);
-    window.localStorage.setItem(key, newValue);
+    sessionStorage.setItem(key, newValue);
   };
 
   return [item, setItem];

@@ -1,14 +1,14 @@
 {
-  "name": "react-use-localstorage",
-  "version": "3.0.0",
-  "description": "Use Local Storage with React hooks",
-  "author": "Sung Kim <sungmkim80@gmail.com>",
+  "name": "react-use-sessionstorage",
+  "version": "1.0.0",
+  "description": "Use Session Storage with React hooks",
+  "author": "Erik Jan de Wit <erikjan.dewit@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dance2die/react-use-localstorage.git"
+    "url": "https://github.com/edewit/react-use-sessionstorage.git"
   },
-  "homepage": "https://github.com/dance2die/react-use-localstorage",
+  "homepage": "https://github.com/edewit/react-use-sessionstorage",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -19,7 +19,7 @@
     "prepare": "run-s clean build"
   },
   "keywords": [
-    "localStorage",
+    "sessionStorage",
     "react",
     "hooks"
   ],
