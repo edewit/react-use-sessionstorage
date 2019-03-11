@@ -1,6 +1,6 @@
 {
   "name": "react-use-sessionstorage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use Session Storage with React hooks",
   "author": "Erik Jan de Wit <erikjan.dewit@gmail.com>",
   "license": "MIT",
