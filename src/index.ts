@@ -11,8 +11,8 @@ export function useSessionStorage(
   });
 
   const setItem = (action: SetStateAction<string>) => {
-    if(action instanceof Function) {
-      return setValue((prevState) => {
+    if (action instanceof Function) {
+      return setValue(prevState => {
         const value = action(prevState);
         sessionStorage.setItem(key, value);
         return value;
@@ -33,14 +33,17 @@ export function useSessionStorageWithObject<T>(
   key: string,
   initialValue: T
 ): [T, Dispatch<SetStateAction<T>>, () => void] {
-  const [_item, _setItem, clear] = useSessionStorage('app', JSON.stringify(initialValue));
-  const item: T = JSON.parse(_item);
-  const setApp = (value: SetStateAction<T>) => {
-    if(value instanceof Function) {
-      _setItem((prevState) => JSON.stringify(value(JSON.parse(prevState))));
+  const [state, setState, clear] = useSessionStorage(
+    key,
+    JSON.stringify(initialValue)
+  );
+  const item: T = JSON.parse(state);
+  const setItem = (value: SetStateAction<T>) => {
+    if (value instanceof Function) {
+      setState(prevState => JSON.stringify(value(JSON.parse(prevState))));
       return;
     }
-    _setItem(JSON.stringify(value));
+    setState(JSON.stringify(value));
   };
-  return [item, setApp, clear];
+  return [item, setItem, clear];
 }
